@@ -37,7 +37,7 @@ function App() {
         return data.id === id
           ? {
               ...data,
-              selected: !data.selected,
+              selected: true,
               selectedValue: e.target.innerText,
             }
           : data;
