@@ -33,16 +33,18 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
-
+body {
+  padding: 60px 0;
+}
 body::before {
   content: url(./assets/yellow.png);
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
 }
 body::after {
   content: url(./assets/blue.png);
-  position: absolute;
+  position: fixed;
   bottom: -10px;
   left: 0;
 }

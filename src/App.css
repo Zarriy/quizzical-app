@@ -7,10 +7,32 @@
 .homepage h1 {
   font-family: Karla, sans-serif;
   margin-bottom: -4px;
+  color: #4d5b9e;
 }
 .homepage button {
   background-color: #4d5b9e;
   color: white;
   padding: 12px 28px;
   margin-top: 12px;
+}
+
+.question {
+  border-bottom: 1px solid #dbdef0;
+  padding: 20px 0;
+  width: 800px;
+}
+.question h2 {
+  color: #4d5b9e;
+}
+.options {
+  display: flex;
+  gap: 20px;
+}
+.options div {
+  background-color: transparent;
+  border: 2px solid #4d5b9e;
+  padding: 6px 18px;
+  border-radius: 12px;
+  font-weight: 500;
+  cursor: pointer;
 }
