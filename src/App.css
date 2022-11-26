@@ -50,3 +50,39 @@
 .checkBtn:focus {
   outline: none;
 }
+.message {
+  text-align: center;
+  margin-top: 20px;
+  font-family: Karla, sans-serif;
+
+  color: #4d5b9e;
+}
+@media screen and (max-width: 51em) {
+  .question {
+    max-width: 600px;
+  }
+}
+@media screen and (max-width: 37em) {
+  .question {
+    max-width: 400px;
+  }
+  .question h2 {
+    font-size: 1.2em;
+  }
+  .options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 26em) {
+  .question {
+    max-width: 300px;
+  }
+  .question h2 {
+    font-size: 1em;
+  }
+  .options {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}

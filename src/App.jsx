@@ -9,6 +9,8 @@ function App() {
   const [game, setGame] = useState(false);
   const [questions, setQuestions] = useState([]);
   const [check, setCheck] = useState(false);
+  const [message, setMessage] = useState("");
+  const [reset, setReset] = useState(false);
 
   useEffect(() => {
     fetch(
@@ -27,7 +29,7 @@ function App() {
         });
         setQuestions(set);
       });
-  }, []);
+  }, [reset]);
 
   const holdValue = (e, id) => {
     setQuestions((prevDat) =>
@@ -48,7 +50,24 @@ function App() {
   };
 
   const checkAnswers = () => {
-    setCheck(true);
+    // check if all are elements are selected.
+    const allselected = questions.every((question) => question.selected);
+    if (allselected) {
+      setCheck(true);
+      const filtered = questions.filter(
+        (question) => question.correct_answer === question.selectedValue
+      );
+      setMessage(`Your Scored ${filtered.length}/4 correct answers`);
+    } else {
+      setMessage(
+        "You have unchecked questions. Please select them before proceeding."
+      );
+    }
+  };
+  const resetGame = () => {
+    setReset((prev) => !prev);
+    setCheck(false);
+    setMessage("");
   };
 
   return (
@@ -63,11 +82,17 @@ function App() {
             check={check}
           />
         ))}
-      {game && (
+      {game && !check && (
         <button className="checkBtn" onClick={checkAnswers}>
-          Check Answers
+          Check answer
         </button>
       )}
+      {game && check && (
+        <button className="checkBtn" onClick={resetGame}>
+          Reset Game
+        </button>
+      )}
+      {<h3 className="message">{message}</h3>}
     </div>
   );
 }

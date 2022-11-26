@@ -29,7 +29,6 @@ function Options(props) {
               : {}
           }
         >
-          {console.log(props.selectedValue === val)}
           {val}
         </div>
       ))}
