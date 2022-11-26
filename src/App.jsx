@@ -6,8 +6,9 @@ import HomePage from "./home";
 import Question from "./questions";
 
 function App() {
-  const [game, setGame] = useState(true);
+  const [game, setGame] = useState(false);
   const [questions, setQuestions] = useState([]);
+  const [check, setCheck] = useState(false);
 
   useEffect(() => {
     fetch(
@@ -42,12 +43,31 @@ function App() {
     );
   };
 
+  const manageGame = () => {
+    setGame(true);
+  };
+
+  const checkAnswers = () => {
+    setCheck(true);
+  };
+
   return (
     <div className="app-div">
-      {!game && <HomePage />}
-      {questions.map((question) => (
-        <Question {...question} key={question.id} holdValue={holdValue} />
-      ))}
+      {!game && <HomePage game={manageGame} />}
+      {game &&
+        questions.map((question) => (
+          <Question
+            {...question}
+            key={question.id}
+            holdValue={holdValue}
+            check={check}
+          />
+        ))}
+      {game && (
+        <button className="checkBtn" onClick={checkAnswers}>
+          Check Answers
+        </button>
+      )}
     </div>
   );
 }

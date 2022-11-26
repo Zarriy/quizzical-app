@@ -41,12 +41,14 @@ body::before {
   position: fixed;
   top: 0;
   right: 0;
+  z-index: -8;
 }
 body::after {
   content: url(./assets/blue.png);
   position: fixed;
   bottom: -10px;
   left: 0;
+  z-index: -8;
 }
 
 h1 {

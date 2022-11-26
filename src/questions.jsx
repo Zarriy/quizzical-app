@@ -11,6 +11,8 @@ function Question(props) {
         selectedValue={props.selectedValue}
         id={props.id}
         hold={props.holdValue}
+        check={props.check}
+        correct={props.correct_answer}
       />
     </div>
   );

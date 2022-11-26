@@ -36,3 +36,17 @@
   font-weight: 500;
   cursor: pointer;
 }
+.checkBtn {
+  background-color: #4d5b9e;
+  padding: 10px 20px;
+  color: white;
+  margin: 40px auto 0 auto;
+  display: block;
+}
+.checkBtn:hover,
+.checkBtn:active {
+  background-color: #5565b8;
+}
+.checkBtn:focus {
+  outline: none;
+}
